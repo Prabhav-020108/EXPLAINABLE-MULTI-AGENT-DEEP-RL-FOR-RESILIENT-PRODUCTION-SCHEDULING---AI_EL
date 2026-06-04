@@ -1,0 +1,8 @@
+# Project-specific ignores
+factory_rl_env/
+models/*.zip
+logs/*.csv
+logs/*.json
+__pycache__/
+*.pyc
+.DS_Store
