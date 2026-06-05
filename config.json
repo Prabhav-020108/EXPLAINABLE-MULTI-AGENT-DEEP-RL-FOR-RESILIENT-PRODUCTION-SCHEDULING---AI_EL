@@ -1,0 +1,8 @@
+{
+    "n_machines": 3,
+    "n_jobs": 6,
+    "max_steps": 100,
+    "breakdown_rate": 0.02,
+    "rush_rate": 0.01,
+    "energy_spike_rate": 0.05
+}
