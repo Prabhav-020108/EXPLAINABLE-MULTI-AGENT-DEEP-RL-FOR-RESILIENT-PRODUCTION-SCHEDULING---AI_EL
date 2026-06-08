@@ -81,17 +81,17 @@ JOB_TYPE_CONFIG = {
     'A': {
         'proc_time_range': (3, 6),
         'energy_range':    (0.10, 0.30),
-        'deadline_slack':  3,
+        'deadline_slack':  5,   # Picked first by EDD → wait ≈ 0-5 steps
     },
     'B': {
         'proc_time_range': (7, 12),
         'energy_range':    (0.30, 0.60),
-        'deadline_slack':  5,
+        'deadline_slack':  8,   # Picked second by EDD → wait ≈ 5-8 steps
     },
     'C': {
         'proc_time_range': (13, 20),
         'energy_range':    (0.60, 1.00),
-        'deadline_slack':  7,
+        'deadline_slack':  12,  # Picked last by EDD → wait ≈ 8-12 steps
     },
 }
 
