@@ -121,8 +121,9 @@ def create_job_batch(
         config = {}
     max_steps = config.get('max_steps', 100)
 
-    # Jobs arrive in the first 20% of the episode — creates real multi-job queues
-    arrival_window = max(1, int(max_steps * 0.20))
+    # Jobs arrive in the first 5% of the episode — burst creates real queue pressure
+    # 6 jobs in 5 steps → 3 machines grab 3, other 3 queue up → FCFS vs EDD diverge
+    arrival_window = max(1, int(max_steps * 0.05))
 
     jobs: List[Job] = []
 
