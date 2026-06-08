@@ -81,17 +81,17 @@ JOB_TYPE_CONFIG = {
     'A': {
         'proc_time_range': (3, 6),
         'energy_range':    (0.10, 0.30),
-        'deadline_slack':  1,   # Tightened from 3 → forces urgency
+        'deadline_slack':  3,
     },
     'B': {
         'proc_time_range': (7, 12),
         'energy_range':    (0.30, 0.60),
-        'deadline_slack':  2,   # Tightened from 5 → forces urgency
+        'deadline_slack':  5,
     },
     'C': {
         'proc_time_range': (13, 20),
         'energy_range':    (0.60, 1.00),
-        'deadline_slack':  3,   # Tightened from 7 → forces urgency
+        'deadline_slack':  7,
     },
 }
 
@@ -121,8 +121,8 @@ def create_job_batch(
         config = {}
     max_steps = config.get('max_steps', 100)
 
-    # Jobs arrive in the first 15% of the episode — creates real multi-job queues
-    arrival_window = max(1, int(max_steps * 0.15))
+    # Jobs arrive in the first 20% of the episode — creates real multi-job queues
+    arrival_window = max(1, int(max_steps * 0.20))
 
     jobs: List[Job] = []
 
