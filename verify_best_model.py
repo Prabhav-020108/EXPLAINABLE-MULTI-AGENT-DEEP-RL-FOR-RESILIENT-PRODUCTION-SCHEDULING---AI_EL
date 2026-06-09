@@ -3,7 +3,16 @@ import numpy as np
 from env.factory_gym import FactoryGym
 from agents.mappo_agent import MAPPOAgent
 
-env   = FactoryGym()
+ENV_CONFIG = {
+    'n_machines':  3,
+    'n_jobs':      6,
+    'max_steps':   100,
+    'breakdown_rate':    0.003,
+    'rush_rate':         0.005,
+    'energy_spike_rate': 0.05,
+}
+
+env   = FactoryGym(ENV_CONFIG)
 agent = MAPPOAgent()
 
 # ── Test BEST model ───────────────────────────────────────────────
@@ -18,8 +27,8 @@ makespans   = []
 energies    = []
 rewards     = []
 
-for ep in range(50):   # 50 episodes for stable mean
-    obs, _ = env.reset(seed=ep)
+for ep in range(30):   # 30 episodes matches training eval loop exactly
+    obs, _ = env.reset(seed=9000+ep)
     ep_reward = 0.0
     step = 0
     while True:
@@ -37,7 +46,7 @@ for ep in range(50):   # 50 episodes for stable mean
     energies.append(state['metrics']['episode_energy'])
     rewards.append(ep_reward)
 
-print(f"\n  Episodes evaluated : 50")
+print(f"\n  Episodes evaluated : 30")
 print(f"  Mean reward        : {np.mean(rewards):.2f} ± {np.std(rewards):.2f}")
 print(f"  Mean tardiness     : {np.mean(tardinesses):.1%} ± {np.std(tardinesses):.1%}")
 print(f"  Min tardiness      : {np.min(tardinesses):.1%}")
@@ -47,7 +56,7 @@ print(f"  Mean energy        : {np.mean(energies):.2f}")
 
 print()
 target_met = np.mean(tardinesses) < 0.15
-print(f"  Tardiness target (< 15%): {'✅ MET' if target_met else '❌ NOT MET'}")
+print(f"  Tardiness target (< 15%): {'[MET]' if target_met else '[NOT MET]'}")
 
 # ── Test FINAL model for comparison ──────────────────────────────
 print()
@@ -59,8 +68,8 @@ agent2.load('models/mappo_factory_final.pth')
 agent2.set_eval_mode()
 
 tard2 = []
-for ep in range(50):
-    obs, _ = env.reset(seed=ep)
+for ep in range(100):   # 100 episodes like Kaggle benchmark
+    obs, _ = env.reset(seed=9000+ep)
     step = 0
     while True:
         masks = {f'machine_{i}': env.get_action_mask(i)
