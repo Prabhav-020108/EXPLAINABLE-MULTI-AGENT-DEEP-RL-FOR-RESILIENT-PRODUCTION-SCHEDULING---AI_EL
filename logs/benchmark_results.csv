@@ -1,0 +1,7 @@
+method,mean_tardiness,std_tardiness,mean_makespan,mean_energy,config
+FCFS,0.1982,0.1503,26.35,42.55,normal
+SPT,0.1351,0.1678,28.66,41.7,normal
+EDD,0.1193,0.1602,28.4,42.27,normal
+MAPPO_best,0.1096,0.1412,28.99,43.85,normal
+EDD_stress,0.2248,0.2114,32.07,44.28,stress
+MAPPO_best_stress,0.2489,0.2093,33.66,48.13,stress
