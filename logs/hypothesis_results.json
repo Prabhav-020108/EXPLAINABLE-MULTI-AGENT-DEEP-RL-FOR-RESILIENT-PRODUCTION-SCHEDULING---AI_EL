@@ -1,0 +1,32 @@
+{
+  "H1": {
+    "hypothesis": "H1",
+    "description": "Agent prioritizes job with critical deadline",
+    "result": "VERIFIED",
+    "action_correct": true,
+    "job0_group_pct": 100.0,
+    "obs14_pct": 100.0,
+    "threshold": 15.0,
+    "chosen_action": 0
+  },
+  "H2": {
+    "hypothesis": "H2",
+    "description": "Energy spike increases energy feature importance",
+    "result": "VERIFIED",
+    "energy_pct": 100.0,
+    "threshold": 10.0,
+    "action_normal": 0,
+    "action_spike": 0
+  },
+  "H3": {
+    "hypothesis": "H3",
+    "description": "Agent gives higher urgency weight to more-urgent job slot",
+    "result": "VERIFIED",
+    "action_correct": true,
+    "job0_group_pct": 100.0,
+    "job1_group_pct": 0.0,
+    "ratio": 999.0,
+    "threshold_ratio": 1.2,
+    "chosen_action": 0
+  }
+}

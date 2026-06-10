@@ -273,6 +273,8 @@ class FactoryGym(gym.Env):
         self.available_jobs = [
             j for j in self.available_jobs if j.job_id not in claimed_ids
         ]
+        # Re-sort after assignments to maintain urgency ordering.
+        self.available_jobs.sort(key=lambda j: j.deadline)
 
         # ══════════════════════════════════════════════════════════
         # 4. SAMPLE AND APPLY DISRUPTIONS
@@ -521,6 +523,9 @@ class FactoryGym(gym.Env):
                 still_pending.append(job)
         self.pending_jobs   = still_pending
         self.available_jobs.extend(newly_arrived)
+        # Sort by deadline — most urgent (smallest deadline) first.
+        # Action 0 = most urgent job. Canonicalizes the action space.
+        self.available_jobs.sort(key=lambda j: j.deadline)
 
     def _compute_tardiness_rate(self) -> float:
         """Fraction of completed jobs that missed their deadline."""

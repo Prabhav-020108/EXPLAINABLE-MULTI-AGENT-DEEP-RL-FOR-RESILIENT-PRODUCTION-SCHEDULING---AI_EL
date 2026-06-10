@@ -1,7 +1,6 @@
 # Project-specific ignores
 factory_rl_env/
 models/*.zip
-logs/*.json
 __pycache__/
 *.pyc
 .DS_Store
