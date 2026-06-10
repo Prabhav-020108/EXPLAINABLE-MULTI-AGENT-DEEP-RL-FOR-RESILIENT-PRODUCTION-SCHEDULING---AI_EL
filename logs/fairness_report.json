@@ -1,0 +1,58 @@
+{
+  "fairness_status": "BIAS_DETECTED",
+  "metrics": {
+    "tardiness_std_dev": 0.1399,
+    "max_disparity_ratio": 2.631,
+    "energy_share": {
+      "A": 0.0766,
+      "B": 0.3632,
+      "C": 0.5602
+    },
+    "priority_fairness": 0.445,
+    "wait_time_std_dev": 4.733
+  },
+  "thresholds": {
+    "tardiness_std_dev": 0.15,
+    "max_disparity_ratio": 2.0,
+    "energy_share_max": 0.75,
+    "priority_fairness_min": 1.0,
+    "wait_time_std_dev": 3.0
+  },
+  "pass_fail": {
+    "tardiness_std_dev": true,
+    "max_disparity_ratio": false,
+    "energy_share_equity": true,
+    "priority_fairness": false,
+    "wait_time_equity": false
+  },
+  "per_type_breakdown": {
+    "A": {
+      "count": 117,
+      "tardiness_rate": 0.2051,
+      "avg_tardiness": 1.41,
+      "avg_wait_time": 3.06,
+      "energy_share": 0.0766
+    },
+    "B": {
+      "count": 120,
+      "tardiness_rate": 0.3083,
+      "avg_tardiness": 2.45,
+      "avg_wait_time": 6.775,
+      "energy_share": 0.3632
+    },
+    "C": {
+      "count": 63,
+      "tardiness_rate": 0.5397,
+      "avg_tardiness": 5.016,
+      "avg_wait_time": 14.429,
+      "energy_share": 0.5602
+    }
+  },
+  "flags": [
+    "Disparity ratio 2.63 >= threshold 2.0 \u2014 Type C (54.0% late) is disproportionately disadvantaged",
+    "Priority fairness ratio 0.445 < threshold 1.0 \u2014 high-priority jobs are MORE tardy than normal-priority ones",
+    "Wait time std dev 4.73 steps >= threshold 3.0 steps \u2014 A=3.1, B=6.8, C=14.4"
+  ],
+  "episodes_evaluated": 50,
+  "total_jobs_audited": 300
+}
