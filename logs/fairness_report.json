@@ -1,15 +1,15 @@
 {
   "fairness_status": "BIAS_DETECTED",
   "metrics": {
-    "tardiness_std_dev": 0.1399,
-    "max_disparity_ratio": 2.631,
+    "tardiness_std_dev": 0.1133,
+    "max_disparity_ratio": 2.281,
     "energy_share": {
-      "A": 0.0766,
-      "B": 0.3632,
-      "C": 0.5602
+      "A": 0.0814,
+      "B": 0.389,
+      "C": 0.5297
     },
-    "priority_fairness": 0.445,
-    "wait_time_std_dev": 4.733
+    "priority_fairness": 0.375,
+    "wait_time_std_dev": 4.157
   },
   "thresholds": {
     "tardiness_std_dev": 0.15,
@@ -27,31 +27,31 @@
   },
   "per_type_breakdown": {
     "A": {
-      "count": 117,
-      "tardiness_rate": 0.2051,
-      "avg_tardiness": 1.41,
-      "avg_wait_time": 3.06,
-      "energy_share": 0.0766
+      "count": 120,
+      "tardiness_rate": 0.2,
+      "avg_tardiness": 0.992,
+      "avg_wait_time": 2.575,
+      "energy_share": 0.0814
     },
     "B": {
-      "count": 120,
-      "tardiness_rate": 0.3083,
-      "avg_tardiness": 2.45,
-      "avg_wait_time": 6.775,
-      "energy_share": 0.3632
+      "count": 123,
+      "tardiness_rate": 0.2358,
+      "avg_tardiness": 1.236,
+      "avg_wait_time": 5.122,
+      "energy_share": 0.389
     },
     "C": {
-      "count": 63,
-      "tardiness_rate": 0.5397,
-      "avg_tardiness": 5.016,
-      "avg_wait_time": 14.429,
-      "energy_share": 0.5602
+      "count": 57,
+      "tardiness_rate": 0.4561,
+      "avg_tardiness": 3.649,
+      "avg_wait_time": 12.386,
+      "energy_share": 0.5297
     }
   },
   "flags": [
-    "Disparity ratio 2.63 >= threshold 2.0 \u2014 Type C (54.0% late) is disproportionately disadvantaged",
-    "Priority fairness ratio 0.445 < threshold 1.0 \u2014 high-priority jobs are MORE tardy than normal-priority ones",
-    "Wait time std dev 4.73 steps >= threshold 3.0 steps \u2014 A=3.1, B=6.8, C=14.4"
+    "Disparity ratio 2.28 >= threshold 2.0 \u2014 Type C (45.6% late) is disproportionately disadvantaged",
+    "Priority fairness ratio 0.375 < threshold 1.0 \u2014 high-priority jobs are MORE tardy than normal-priority ones",
+    "Wait time std dev 4.16 steps >= threshold 3.0 steps \u2014 A=2.6, B=5.1, C=12.4"
   ],
   "episodes_evaluated": 50,
   "total_jobs_audited": 300

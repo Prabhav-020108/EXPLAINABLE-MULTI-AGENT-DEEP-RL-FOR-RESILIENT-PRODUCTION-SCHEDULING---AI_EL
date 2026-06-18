@@ -1,0 +1,32 @@
+==============================================================
+  INTEGRATION TEST REPORT
+==============================================================
+  Integration test  : PASSED
+  Episodes tested   : 10
+  NaN rewards       : 0
+  Obs shape errors  : 0
+  Episode errors    : 0
+
+  Mean reward       : 6.68
+  Mean tardiness    : 11.7%
+  Mean makespan     : 28.1
+
+  EDGE CASE RESULTS:
+--------------------------------------------------------------
+  PASS   All machines broken simultaneously
+  PASS   Empty job queue
+  PASS   Rush order with full queue
+  PASS   Energy spike at step 0
+  PASS   Long job (proc_time > max_steps/2)
+  PASS   SHAP on all-zero observation
+  PASS   Fairness auditor with zero jobs
+  PASS   Dashboard pre-reset import check
+
+  PERFORMANCE TARGETS:
+--------------------------------------------------------------
+  PASS   Inference latency: 4.6ms (target <50ms)
+  FAIL   SHAP latency: 713ms (target <500ms)
+  PASS   Memory: 0MB (target <4096MB)
+  PASS   Speed: 185.5 steps/sec (target >10)
+
+==============================================================
